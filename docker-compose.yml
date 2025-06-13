@@ -1,0 +1,22 @@
+services:
+  testdockermvcapp:
+    image: ${DOCKER_REGISTRY-}testdockermvcapp
+    build:
+      context: .
+      dockerfile: TestDockerMvcApp/Dockerfile
+
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    container_name: sqlserver
+    environment:
+      ACCEPT_EULA: "Y"
+      MSSQL_SA_PASSWORD: "123qwe!@#QWE"
+      MSSQL_PID: "Developer"  # or "Express" or "Evaluation"
+    ports:
+      - "1433:1433"
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8081:8080 #8081 host port and 8080 container port 

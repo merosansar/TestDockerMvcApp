@@ -1,0 +1,19 @@
+﻿apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: testdockermvcapp-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: testdockermvcapp
+  template:
+    metadata:
+      labels:
+        app: testdockermvcapp
+    spec:
+      containers:
+      - name: testdockermvcapp
+        image: merosansar/testdockermvcapp:latest
+        ports:
+        - containerPort: 8080  # Change this if your app listens on a different port
