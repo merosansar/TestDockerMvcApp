@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: testdockermvcapp
-        image: merosansar/testdockermvcapp:latest
+        image: merosansar/testdockermvcapp:__IMAGE_TAG__  # <-- Will be replaced in workflow
         imagePullPolicy: Always   # <--- Add this line here
         ports:
         - containerPort: 8080  # Change this if your app listens on a different port
